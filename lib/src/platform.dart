@@ -1,15 +1,13 @@
 
-import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 
-extension PlatformExtension on Platform {
-  static bool get isDesktop {
-    if (kIsWeb) return false;
-    return [
+class PlatformExtension {
+  
+  static final bool isDesktop = (
+    !kIsWeb && [
       TargetPlatform.linux,
       TargetPlatform.macOS,
       TargetPlatform.windows,
-    ].contains(defaultTargetPlatform);
-  }
+    ].contains(defaultTargetPlatform)
+  );
 }
